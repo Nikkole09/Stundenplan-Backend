@@ -1,2 +1,0 @@
-# Stundenplan-Backend
-Für Stundenplanprojekt
