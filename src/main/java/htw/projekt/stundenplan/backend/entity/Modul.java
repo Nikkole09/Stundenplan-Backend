@@ -1,6 +1,8 @@
 package htw.projekt.stundenplan.backend.entity;
 
 import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "module")
@@ -15,6 +17,9 @@ public class Modul {
 
     @Column(columnDefinition = "TEXT")
     private String dozent;
+
+    @OneToMany(mappedBy = "modul", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Lehrveranstaltung> lehrveranstaltungen = new ArrayList<>();
 
     public Modul() {}
 
@@ -31,4 +36,7 @@ public class Modul {
 
     public String getDozent() { return dozent; }
     public void setDozent(String dozent) { this.dozent = dozent; }
+
+    public List<Lehrveranstaltung> getLehrveranstaltungen() { return lehrveranstaltungen; }
+    public void setLehrveranstaltungen(List<Lehrveranstaltung> lehrveranstaltungen) { this.lehrveranstaltungen = lehrveranstaltungen; }
 }
