@@ -1,3 +1,10 @@
+/**
+ * Entity für ein Modul des FIW-Studiums.
+ * Bildet die Tabelle 'module' ab und speichert Daten.
+ *
+ * @author Maeva Nguemezi
+ */
+
 package htw.projekt.stundenplan.backend.entity;
 
 import jakarta.persistence.*;
@@ -8,10 +15,15 @@ import java.util.List;
 @Table(name = "module")
 public class Modul {
 
+    // Primaerschloussel
+    // ID wird automatisch von der Datenbank vergeben
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    // Felder aus der StuPO
+    // kuerzel = Nr. Spalte aus StuPO (B31, B32...), muss eindeutig sein
+    // name, dozent, lp, fachsemester
     @Column(unique = true)
     private String kuerzel;
 
@@ -27,6 +39,8 @@ public class Modul {
     @Column
     private Integer fachsemester;
 
+    //  Beziehung zu Lehrveranstaltungen
+    // Ein Modul hat viele LVs. Wenn Modul geloescht wird, werden LVs auch geloescht.
     @OneToMany(mappedBy = "modul", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Lehrveranstaltung> lehrveranstaltungen = new ArrayList<>();
 

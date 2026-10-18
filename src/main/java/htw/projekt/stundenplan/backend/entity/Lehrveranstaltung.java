@@ -1,3 +1,10 @@
+/**
+ * Entity für Lehrveranstaltung wie Vorlesung oder Uebung.
+ * Gehoert immer zu einem Modul und kann Voraussetzungen haben.
+ *
+ * @author Maeva Nguemezi
+ */
+
 package htw.projekt.stundenplan.backend.entity;
 
 import jakarta.persistence.*;
@@ -30,7 +37,8 @@ public class Lehrveranstaltung {
     @JoinColumn(name = "modul_id", nullable = false)
     private Modul modul;
 
-
+    // Voraussetzungen NV= Notwendige Vorraussetzung / EV= Empfohlende Vorraussetzung
+    // Eine LV kann viele andere LVs als Voraussetzung haben (ManyToMany mit sich selbst)
     @ManyToMany
     @JoinTable(
             name = "lehrveranstaltung_voraussetzung",
