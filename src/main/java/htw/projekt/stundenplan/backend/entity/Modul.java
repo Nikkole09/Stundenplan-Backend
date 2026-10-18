@@ -12,20 +12,32 @@ public class Modul {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true)
+    private String kuerzel;
+
     @Column(columnDefinition = "TEXT")
     private String name;
 
     @Column(columnDefinition = "TEXT")
     private String dozent;
 
+    @Column
+    private Integer lp;
+
+    @Column
+    private Integer fachsemester;
+
     @OneToMany(mappedBy = "modul", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Lehrveranstaltung> lehrveranstaltungen = new ArrayList<>();
 
     public Modul() {}
 
-    public Modul(String name, String dozent) {
+    public Modul(String name, String dozent, String kuerzel,Integer lp, Integer fachsemester ) {
         this.name = name;
         this.dozent = dozent;
+        this.kuerzel = kuerzel;
+        this.lp = lp;
+        this.fachsemester = fachsemester;
     }
 
     public Long getId() { return id; }
@@ -39,4 +51,14 @@ public class Modul {
 
     public List<Lehrveranstaltung> getLehrveranstaltungen() { return lehrveranstaltungen; }
     public void setLehrveranstaltungen(List<Lehrveranstaltung> lehrveranstaltungen) { this.lehrveranstaltungen = lehrveranstaltungen; }
+
+    public String getKuerzel() { return kuerzel; }
+    public void setKuerzel(String kuerzel) { this.kuerzel = kuerzel; }
+
+    public Integer getLp() { return lp; }
+    public void setLp(Integer lp) { this.lp = lp; }
+
+    public Integer getFachsemester() { return fachsemester; }
+    public void setFachsemester(Integer fachsemester) { this.fachsemester = fachsemester; }
+
 }
