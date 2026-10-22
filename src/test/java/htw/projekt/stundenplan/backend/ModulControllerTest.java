@@ -1,5 +1,5 @@
 package htw.projekt.stundenplan.backend;
-
+//Die Schnittstelle fürs Internet / Web (REST-Endpunkt).
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,7 +10,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
-@AutoConfigureMockMvc
+@AutoConfigureMockMvc // Startet den Web-Test-Server im Hintergrund
 class ModulControllerTest {
 
     @Autowired
@@ -18,7 +18,7 @@ class ModulControllerTest {
 
     @Test
     void getAlleModuleLiefertStatus200() throws Exception {
-        mockMvc.perform(get("/api/modules"))
-                .andExpect(status().isOk());
+        mockMvc.perform(get("/api/modules"))// Simuliert den Aufruf im Browser
+                .andExpect(status().isOk()); // Erwartet HTTP-Status 200 (Erfolg)
     }
 }
