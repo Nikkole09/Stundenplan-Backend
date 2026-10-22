@@ -44,6 +44,13 @@ public class Modul {
     @OneToMany(mappedBy = "modul", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Lehrveranstaltung> lehrveranstaltungen = new ArrayList<>();
 
+
+    // Beziehungen zu den Modulvoraussetzungen
+    @OneToMany(mappedBy = "modul")
+    private List<ModulVoraussetzung> voraussetzungen = new ArrayList<>();
+
+
+
     public Modul() {}
 
     public Modul(String name, String dozent, String kuerzel,Integer lp, Integer fachsemester ) {
@@ -74,5 +81,18 @@ public class Modul {
 
     public Integer getFachsemester() { return fachsemester; }
     public void setFachsemester(Integer fachsemester) { this.fachsemester = fachsemester; }
+
+
+    public List<ModulVoraussetzung> getVoraussetzungen() {
+        return voraussetzungen;
+    }
+
+    public void setVoraussetzungen(
+            List<ModulVoraussetzung> voraussetzungen) {
+        this.voraussetzungen = voraussetzungen;
+    }
+
+
+
 
 }
