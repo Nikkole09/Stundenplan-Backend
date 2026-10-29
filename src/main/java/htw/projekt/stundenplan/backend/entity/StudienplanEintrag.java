@@ -86,7 +86,7 @@ public class StudienplanEintrag {
 
     //Konstruktor zum Erstellen eines neue Studienplan Eintrags
     public StudienplanEintrag(
-        String stundentEmail,
+        String studentEmail,
         Lehrveranstaltung lehrveranstaltung,
         Integer semester
     )
