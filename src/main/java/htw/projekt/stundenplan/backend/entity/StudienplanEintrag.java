@@ -1,5 +1,20 @@
-package htw.projekt.stundenplan.backend.entity;
+/*
+ *
+ *  *  NICHT MEHR VERWENDBAR. *
+ *  *  Entity StudienplanEintrag wurde geloescht in pgAdmin. *
+ *
+ */
 
+/*
+/**
+ * Die Klasse StudienplanEintrag repräsentiert einen Eintrag in einem Studienplan.
+ *
+ * Beispiel:
+ * test@htw-berlin.de wählt Lehrveranstelung 1
+ * für das persönliche Semester 3 aus.
+ * /
+
+package htw.projekt.stundenplan.backend.entity;
 
 import jakarta.persistence.*;
 
@@ -9,7 +24,7 @@ Die Klasse StudienplanEintrag repräsentiert einen Eintrag in einem Studienplan.
 Beispiel:
 test@htw-berlin.de wählt Lehrveranstelung 1
 für das persönliche Semester 3 aus.
- */
+ * /
 
 @Entity
 
@@ -22,7 +37,7 @@ für das persönliche Semester 3 aus.
     dieselber Studentin
     + dieselbe Lehrveranstaltung
     + dasselbe Semester
-     */
+     * /
 
     uniqueConstraints = {
         @UniqueConstraint (
@@ -40,7 +55,7 @@ public class StudienplanEintrag {
     /*
     - Eindueige Id für jeder Stundenplan Eintrag
     - Die Id wird autumatisch verggeben von die Datenbank
-     */
+     * /
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -54,7 +69,7 @@ public class StudienplanEintrag {
 
     Später wird diese Feld durch eine User-Beziehung mit
     der Login-Funktion ersetzt werden
-     */
+     * /
 
     @Column(name = "student_email", nullable = false)
     private String studentEmail;
@@ -64,7 +79,7 @@ public class StudienplanEintrag {
 
     Mehrere Stundenplan Einträge können dieselbe Lehrveranstaltung verwenden,
     z.b für verschiedene Studentinnen oder für verschiedene Semester.
-     */
+     * /
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "lehrveranstaltung_id", nullable = false)
@@ -73,16 +88,15 @@ public class StudienplanEintrag {
     /*
     Das persönliche Semester, für das die Studentin
     die Lehrveranstaltung eingeplant hat
-     */
+     * /
     @Column(nullable = false)
     private Integer semester;
 
     /*
     Leerer Konstruktor.
     JPA braucht diesen Konstruktor, um objekte aus der Datenbank zu erstellen
-     */
+     * /
     public StudienplanEintrag(){}
-
 
     //Konstruktor zum Erstellen eines neue Studienplan Eintrags
     public StudienplanEintrag(
@@ -144,3 +158,4 @@ public class StudienplanEintrag {
     }
 
 }
+*/

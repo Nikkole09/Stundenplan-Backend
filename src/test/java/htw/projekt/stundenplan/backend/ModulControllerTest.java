@@ -1,3 +1,11 @@
+/*
+ *
+ *  *  NICHT MEHR VERWENDBAR *
+ *  *  Test ModulControllerTest wird angepasst und neu erstellt. *
+ *
+ */
+
+/*
 package htw.projekt.stundenplan.backend;
 
 import org.junit.jupiter.api.Test;
@@ -22,3 +30,4 @@ class ModulControllerTest {
                 .andExpect(status().isOk());
     }
 }
+*/

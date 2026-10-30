@@ -1,9 +1,18 @@
+/*
+ *
+ *  *  NICHT MEHR VERWENDBAR  *
+ *  *  Entity Lehrveranstaltung wurde geloescht in pgAdmin   *
+
+ *
+ */
+
+/*
 /**
  * Entity für Lehrveranstaltung wie Vorlesung oder Uebung.
  * Gehoert immer zu einem Modul und kann Voraussetzungen haben.
  *
  * @author Maeva Nguemezi
- */
+ * /
 
 package htw.projekt.stundenplan.backend.entity;
 
@@ -28,10 +37,8 @@ public class Lehrveranstaltung {
     @Column(name = "sws")
     private int sws;
 
-
     @Column(name = "fachsemester")
     private Integer fachsemester;
-
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "modul_id", nullable = false)
@@ -72,3 +79,4 @@ public class Lehrveranstaltung {
     public Set<Lehrveranstaltung> getVoraussetzungen() { return voraussetzungen; }
     public void setVoraussetzungen(Set<Lehrveranstaltung> voraussetzungen) { this.voraussetzungen = voraussetzungen; }
 }
+*/

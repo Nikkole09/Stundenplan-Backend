@@ -1,5 +1,10 @@
-package htw.projekt.stundenplan.backend.controller;
+/*
+ *
+ *  *  NICHT MEHR VERWENDBAR *
+ *
+ */
 
+/*
 import htw.projekt.stundenplan.backend.dto.StudienplanEintragRequest;
 import htw.projekt.stundenplan.backend.entity.Lehrveranstaltung;
 import htw.projekt.stundenplan.backend.entity.StudienplanEintrag;
@@ -9,15 +14,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
 //-----------------------------------
 import java.util.List;
-
 
 /*
 Dieser controller verarbeitet die Anfragen
 für den persönlichen Stundenplan.
-*/
+* /
 @RestController
 @RequestMapping("/api/study-plan" )
 public class StudienplanEintragController{
@@ -33,7 +36,7 @@ public class StudienplanEintragController{
     /*
     Spring übergibt die benötigten Repositories
     automatisch über den Konstruktor.
-    */
+    * /
     public StudienplanEintragController(
         StudienplanEintragRepository studienplanEintragRepository,
         LehrveranstaltungRepository lehrveranstaltungRepository
@@ -46,7 +49,7 @@ public class StudienplanEintragController{
     /*
     POST /api/study-plan
     Speichert einen ausgewählte Lehrveranstaltung für eine Studentin und ein Semester
-    */
+    * /
     @PostMapping
     public ResponseEntity<String> speichern(
         @RequestBody StudienplanEintragRequest request
@@ -124,7 +127,7 @@ public class StudienplanEintragController{
     /*
     GET /api/study-plan/{studentEmail}
     Gibt alle gespeicherten Studienplan Einträge einer Studentin zurück
-    */
+    * /
    @GetMapping
    public List<StudienplanEintrag> abrufen(
     @RequestParam String studentEmail
@@ -132,6 +135,5 @@ public class StudienplanEintragController{
     return studienplanEintragRepository.findByStudentEmail(studentEmail);
    }
 
-
-
 }
+*/

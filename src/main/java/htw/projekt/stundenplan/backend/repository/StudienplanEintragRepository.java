@@ -1,3 +1,10 @@
+/*
+ *
+ *  *  NICHT MEHR VERWENDBAR *
+ *
+ */
+
+/*
 package htw.projekt.stundenplan.backend.repository;
 
 import htw.projekt.stundenplan.backend.entity.StudienplanEintrag;
@@ -8,7 +15,7 @@ import java.util.List;
 /*
 Dieses Repository ist für die Datenbank-Tabelle
 studienplan_eintrag zuständig.
- */
+ * /
 
 public interface StudienplanEintragRepository
 
@@ -16,7 +23,7 @@ public interface StudienplanEintragRepository
 JpaRepository gibt uns fertige Funktionen: save(), findById(), findAll(), deleteById() usw.
 StudienplanEintrag = Entity, die gespeichert wird.
 Long = Datentyp der Id.
- */
+ * /
 
 extends JpaRepository<StudienplanEintrag, Long>
 {
@@ -26,7 +33,7 @@ extends JpaRepository<StudienplanEintrag, Long>
     /*
     Prüft, ob eine Studentin dieselbe Lehrveranstaltung bereits im gleichen Semester ausgewählt hat.
     So können doppelte Einträge verhindert werden.
-     */
+     * /
     boolean existsByStudentEmailAndLehrveranstaltung_IdAndSemester
     (
         String studentEmail,
@@ -34,3 +41,4 @@ extends JpaRepository<StudienplanEintrag, Long>
         Integer semester
     );
 }
+*/

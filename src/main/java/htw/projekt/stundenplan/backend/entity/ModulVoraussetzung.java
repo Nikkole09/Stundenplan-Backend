@@ -1,4 +1,12 @@
+/*
+ *
+ *  *  NICHT MEHR VERWENDBAR *
+ *  *  Entity ModulVoraussetzung wurde geloescht in pgAdmin. *
+ *     Wird angepasst und neu erstellt. *
+ *
+ */
 
+/*
 package htw.projekt.stundenplan.backend.entity;
 
 import jakarta.persistence.*;
@@ -62,3 +70,4 @@ public class ModulVoraussetzung {
         this.typ = typ;
     }
 }
+*/

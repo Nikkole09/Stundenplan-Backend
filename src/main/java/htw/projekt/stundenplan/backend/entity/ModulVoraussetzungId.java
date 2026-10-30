@@ -1,4 +1,11 @@
+/*
+ *
+ *  *  NICHT MEHR VERWENDBAR *
+ *  *  Entity ModulVoraussetzungId wurde geloescht in pgAdmin. *
+ *
+ */
 
+/*
 package htw.projekt.stundenplan.backend.entity;
 
 import jakarta.persistence.Column;
@@ -53,3 +60,4 @@ public class ModulVoraussetzungId implements Serializable {
         return Objects.hash(modulId, voraussetzungId);
     }
 }
+*/

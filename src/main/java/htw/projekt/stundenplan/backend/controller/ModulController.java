@@ -1,3 +1,11 @@
+/*
+ *
+ *  *  NICHT MEHR VERWENDBAR
+ *  *  Controller Modul wird angepasst und neu erstellt
+ *
+ */
+
+/*
 package htw.projekt.stundenplan.backend.controller;
 
 import htw.projekt.stundenplan.backend.entity.Modul;
@@ -23,3 +31,4 @@ public class ModulController {
         return modulRepository.findAll();
     }
 }
+*/

@@ -1,9 +1,18 @@
+/*
+ *
+ *  *  NICHT MEHR VERWENDBAR *
+ *  *  Entity Modul wurde geloescht in pgAdmin.*
+ *  *  Wird angepasst und neu erstellt. *
+ *
+ */
+
+/*
 /**
  * Entity für ein Modul des FIW-Studiums.
  * Bildet die Tabelle 'module' ab und speichert Daten.
  *
  * @author Maeva Nguemezi
- */
+ * /
 
 package htw.projekt.stundenplan.backend.entity;
 
@@ -44,12 +53,9 @@ public class Modul {
     @OneToMany(mappedBy = "modul", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Lehrveranstaltung> lehrveranstaltungen = new ArrayList<>();
 
-
     // Beziehungen zu den Modulvoraussetzungen
     @OneToMany(mappedBy = "modul")
     private List<ModulVoraussetzung> voraussetzungen = new ArrayList<>();
-
-
 
     public Modul() {}
 
@@ -82,7 +88,6 @@ public class Modul {
     public Integer getFachsemester() { return fachsemester; }
     public void setFachsemester(Integer fachsemester) { this.fachsemester = fachsemester; }
 
-
     public List<ModulVoraussetzung> getVoraussetzungen() {
         return voraussetzungen;
     }
@@ -91,8 +96,5 @@ public class Modul {
             List<ModulVoraussetzung> voraussetzungen) {
         this.voraussetzungen = voraussetzungen;
     }
-
-
-
-
 }
+*/

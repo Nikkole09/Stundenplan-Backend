@@ -1,3 +1,10 @@
+/*
+ *
+ *  *  NICHT MEHR VERWENDBAR
+ *
+ */
+
+/*
 package htw.projekt.stundenplan.backend;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,3 +23,4 @@ public class TestController {
         return "Hallo vom Stundenplan-Backend!";
     }
 }
+*/
