@@ -92,12 +92,42 @@ public class AuthServiceImpl implements AuthService {
         );
     }
 
-    @Override
-    public AuthResponse login(LoginRequest request) {
+   
+@Override
+public AuthResponse login(LoginRequest request) {
 
-        // TODO: JWT-Anmeldung nach Integration von T1
-        throw new UnsupportedOperationException(
-                "Login noch nicht implementiert"
+    // 1. E-Mail vorbereiten
+    String email = request.email()
+            .trim()
+            .toLowerCase(Locale.ROOT);
+
+    // 2. Benutzerkonto suchen
+    Benutzerkonto benutzerkonto =
+            benutzerkontoRepository
+                    .findByEmailIgnoreCase(email)
+                    .orElseThrow(() ->
+                            new ResponseStatusException(
+                                    HttpStatus.UNAUTHORIZED,
+                                    "Ungültige Anmeldedaten"
+                            )
+                    );
+
+    // 3. Passwort und Kontostatus überprüfen
+    if (!Boolean.TRUE.equals(benutzerkonto.getActive())
+            || !passwordEncoder.matches(
+                    request.password(),
+                    benutzerkonto.getPasswordHash())) {
+
+        throw new ResponseStatusException(
+                HttpStatus.UNAUTHORIZED,
+                "Ungültige Anmeldedaten"
         );
     }
+
+    // 4. JWT-Anbindung folgt nach Integration von T1
+    throw new UnsupportedOperationException(
+            "JWT-TokenProvider aus T1 noch nicht verfügbar"
+    );
+}
+
 }
