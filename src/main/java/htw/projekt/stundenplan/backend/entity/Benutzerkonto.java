@@ -1,51 +1,57 @@
-
+/**
+ * Entity für ein Benutzerkonto der Studienplan-Anwendung
+ * Bilden die Tabelle "Benutzerkonto" ab.
+ *
+ * @author : Israa Alnaddaf
+ */
 package htw.projekt.stundenplan.backend.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import htw.projekt.stundenplan.backend.enums.Rolle;
 
 @Entity
-@Table(name = "benutzerkonto")
+@Table(name = "Benutzerkonto")
 public class Benutzerkonto {
+    @Id // Eindeuiger Primärschlüssel
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Die Datenbank erzeugt die ID
+    private Long id; // Primärschlüssel der Klasse
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(name = "name", nullable = false, columnDefinition = "text")
+    // Beschreibung der Datenbanksplate
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String name;
 
-    @Column(name = "email", nullable = false, unique = true,
-            columnDefinition = "text")
+    @Column (nullable = false, unique = true, columnDefinition = "TEXT")
     private String email;
 
-    @Column(name = "password_hash", nullable = false,
-            columnDefinition = "text")
+    @Column (name = "password_hash", nullable = false, columnDefinition = "TEXT")
     private String passwordHash;
 
-    @Column(name = "role", nullable = false)
-    private String role;
+    // Enum wird als Text gespeichert
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 20)
+    private Rolle rolle;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "studienordnung_id")
+    @ManyToOne(fetch = FetchType.LAZY) // Viele Eintrage gehören zu einem Eintrag
+    @JoinColumn(name = "studienordnung_id") // Fremdschlüssel zur anderen Tabelle
     private Studienordnung studienordnung;
+    @Column(nullable = false)
+    private boolean aktiv = true;
 
-    @Column(name = "active")
-    private Boolean active;
+    @Column(name = "passwort_aendern_pflicht", nullable = false)
+    private boolean passwortAendernPflicht = false;
 
-    @Column(name = "must_change_pw")
-    private Boolean mustChangePw;
-
-    public Benutzerkonto() {
+    protected Benutzerkonto() { // JPA benötigt diesen leeren Konstruktor
     }
 
+    public Benutzerkonto(String name, String email, String passwordHash, Rolle rolle, Studienordnung studienordnung) {
+        this.name = name;
+        this.email = email;
+        this.passwordHash = passwordHash;
+        this.rolle = rolle;
+        this.studienordnung = studienordnung;
+    }
+
+    // Getter: Diese Methoden lesen Werte aus dem Objekt aus
     public Long getId() {
         return id;
     }
@@ -54,55 +60,35 @@ public class Benutzerkonto {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getEmail() {
         return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getPasswordHash() {
         return passwordHash;
     }
 
-    public void setPasswordHash(String passwordHash) {
-        this.passwordHash = passwordHash;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
+    public Rolle getRolle() {
+        return rolle;
     }
 
     public Studienordnung getStudienordnung() {
         return studienordnung;
     }
 
-    public void setStudienordnung(Studienordnung studienordnung) {
-        this.studienordnung = studienordnung;
+    public boolean getAktiv() {
+        return aktiv;
     }
 
-    public Boolean getActive() {
-        return active;
+    public boolean getPasswortAendernPflicht() {
+        return passwortAendernPflicht;
     }
 
-    public void setActive(Boolean active) {
-        this.active = active;
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
     }
 
-    public Boolean getMustChangePw() {
-        return mustChangePw;
-    }
-
-    public void setMustChangePw(Boolean mustChangePw) {
-        this.mustChangePw = mustChangePw;
+    public void setPasswortAendernPflicht(boolean passwortAendernPflicht) {
+        this.passwortAendernPflicht = passwortAendernPflicht;
     }
 }
