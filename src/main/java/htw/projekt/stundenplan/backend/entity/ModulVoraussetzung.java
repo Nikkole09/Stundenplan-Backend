@@ -1,73 +1,54 @@
-/*
+/**
+ * Entity für eine Voraussetzung zwischen zwei Modulen.
+ * Bildet die Tabelle 'modul_voraussetzung' ab und unterscheidet NV und EV.
  *
- *  *  NICHT MEHR VERWENDBAR *
- *  *  Entity ModulVoraussetzung wurde geloescht in pgAdmin. *
- *     Wird angepasst und neu erstellt. *
- *
+ * @author Khawla Yousef
  */
 
-/*
 package htw.projekt.stundenplan.backend.entity;
 
+import htw.projekt.stundenplan.backend.enums.VoraussetzungTyp;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "modul_voraussetzung")
 public class ModulVoraussetzung {
 
-    // Zusammengesetzter Primärschlüssel
     @EmbeddedId
-    private ModulVoraussetzungId id;
+    private ModulVoraussetzungId id; // Zusammengesetzter Schlüssel aus zwei Modul-IDs.
 
-    // Modul, für das die Voraussetzung gilt
-    @ManyToOne
-    @MapsId("modulId")
-    @JoinColumn(name = "modul_id")
-    private Modul modul;
+    // Das Modul, das eine Voraussetzung besitzt.
+    @MapsId("modulId") // Verbindet den Schlüsselteil modulId mit dieser Beziehung.
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "modul_id", nullable = false)
+    private Modul modul; // Das Modul, das diese Voraussetzung besitzt.
 
-    // Modul, das als Voraussetzung dient
-    @ManyToOne
-    @MapsId("voraussetzungId")
-    @JoinColumn(name = "voraussetzung_id")
-    private Modul voraussetzung;
+    // Das Modul, das vorher besucht werden muss oder empfohlen wird.
+    @MapsId("vorausgesetztesModulId") // Verbindet den zweiten Schlüsselteil mit der Beziehung.
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "vorausgesetztes_modul_id", nullable = false)
+    private Modul vorausgesetztesModul;
 
-    // nv = notwendig, ev = empfohlen
-    @Column(name = "typ")
-    private String typ;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "voraussetzung_typ", nullable = false, length = 2)
+    private VoraussetzungTyp voraussetzungTyp; // NV = notwendig, EV = empfohlen.
 
-    public ModulVoraussetzung() {
+    protected ModulVoraussetzung() {
+        // Wird von JPA benötigt.
     }
 
-    public ModulVoraussetzungId getId() {
-        return id;
-    }
-
-    public void setId(ModulVoraussetzungId id) {
-        this.id = id;
-    }
-
-    public Modul getModul() {
-        return modul;
-    }
-
-    public void setModul(Modul modul) {
+    public ModulVoraussetzung(Modul modul, Modul vorausgesetztesModul,
+                              VoraussetzungTyp voraussetzungTyp) {
         this.modul = modul;
+        this.vorausgesetztesModul = vorausgesetztesModul;
+        this.voraussetzungTyp = voraussetzungTyp;
+        // Beide Modul-IDs bilden zusammen den Primärschlüssel.
+        this.id = new ModulVoraussetzungId(modul.getId(),
+                                           vorausgesetztesModul.getId());
     }
 
-    public Modul getVoraussetzung() {
-        return voraussetzung;
-    }
-
-    public void setVoraussetzung(Modul voraussetzung) {
-        this.voraussetzung = voraussetzung;
-    }
-
-    public String getTyp() {
-        return typ;
-    }
-
-    public void setTyp(String typ) {
-        this.typ = typ;
-    }
+    public ModulVoraussetzungId getId() { return id; }
+    public Modul getModul() { return modul; }
+    public Modul getVorausgesetztesModul() { return vorausgesetztesModul; }
+    public VoraussetzungTyp getVoraussetzungTyp() { return voraussetzungTyp; }
 }
-*/

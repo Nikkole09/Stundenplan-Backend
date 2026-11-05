@@ -1,63 +1,41 @@
-/*
- *
- *  *  NICHT MEHR VERWENDBAR *
- *  *  Entity ModulVoraussetzungId wurde geloescht in pgAdmin. *
- *
- */
-
-/*
 package htw.projekt.stundenplan.backend.entity;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * Kombinierter Primärschlüssel für Modulvoraussetzungen.
+ * Da eine Beziehung immer aus ZWEI Modulen besteht Modul + vorausgesetztes Modul,
+ * benötigen wir diese ID-Klasse für die Datenbank.
+ */
 @Embeddable
 public class ModulVoraussetzungId implements Serializable {
 
-    @Column(name = "modul_id")
-    private Long modulId;
+    private Long modulId;               
+    private Long vorausgesetztesModulId; 
 
-    @Column(name = "voraussetzung_id")
-    private Long voraussetzungId;
+    protected ModulVoraussetzungId() {}
 
-    public ModulVoraussetzungId() {
-    }
-
-    public ModulVoraussetzungId(Long modulId, Long voraussetzungId) {
+    public ModulVoraussetzungId(Long modulId, Long vorausgesetztesModulId) {
         this.modulId = modulId;
-        this.voraussetzungId = voraussetzungId;
+        this.vorausgesetztesModulId = vorausgesetztesModulId;
     }
 
-    public Long getModulId() {
-        return modulId;
-    }
-
-    public void setModulId(Long modulId) {
-        this.modulId = modulId;
-    }
-
-    public Long getVoraussetzungId() {
-        return voraussetzungId;
-    }
-
-    public void setVoraussetzungId(Long voraussetzungId) {
-        this.voraussetzungId = voraussetzungId;
-    }
+    public Long getModulId() { return modulId; }
+    public Long getVorausgesetztesModulId() { return vorausgesetztesModulId; }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof ModulVoraussetzungId)) return false;
-        ModulVoraussetzungId that = (ModulVoraussetzungId) o;
-        return Objects.equals(modulId, that.modulId)
-                && Objects.equals(voraussetzungId, that.voraussetzungId);
+    // Java benötigt equals & hashCode für zusammengesetzte Schlüssel zum Vergleichen
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof ModulVoraussetzungId other)) return false;
+        return Objects.equals(modulId, other.modulId)
+                && Objects.equals(vorausgesetztesModulId, other.vorausgesetztesModulId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(modulId, voraussetzungId);
+        return Objects.hash(modulId, vorausgesetztesModulId);
     }
 }
-*/
