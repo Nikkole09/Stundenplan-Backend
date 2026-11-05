@@ -89,6 +89,38 @@ VALUES (4, 17, 'B35.2', 'Konfliktmanagement und Mediation', 'PÜ', 2);
 INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws)
 VALUES (5, 31, 'B65.1', 'Bachelorseminar', 'PS', 1);
 
+--Wahlpflichtmodule WP1 bis WP15
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (33, 1, 'WP1', 'Machine Learning', 4, 'WP', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (34, 1, 'WP2', 'Deep Learning', 4, 'WP', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (35, 1, 'WP3', 'Vertiefung in Datenbanken und Datenstrukturen', 4, 'WP', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (36, 1, 'WP4', 'Vertiefung in Datenschutz und Datensicherheit', 4, 'WP', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (37, 1, 'WP5', 'IT-Security', 4, 'WP', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (38, 1, 'WP6', 'Programmierung mit Python', 4, 'WP', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (39, 1, 'WP7', 'DevOps', 4, 'WP', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (40, 1, 'WP8', 'Cloud Computing', 4, 'WP', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (41, 1, 'WP9', 'Micro-Service-Architekturen', 4, 'WP', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (42, 1, 'WP10', 'Ethik in Informatik', 4, 'WP', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (43, 1, 'WP11', 'Business Intelligence', 4, 'WP', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (44, 1, 'WP12', 'Design Patterns', 4, 'WP', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (45, 1, 'WP13', 'Progressive Web Apps', 4, 'WP', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (46, 1, 'WP14', 'Besondere Kapitel der Informatik', 4, 'WP', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (47, 1, 'WP15', 'Besondere Kapitel der Wirtschaftsinformatik', 4, 'WP', 5);
+
 --Voraussetzungen der StuPO 2024 (NV und EV)
 INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
 VALUES (7, 1, 'EV');
@@ -162,35 +194,3 @@ INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzu
 VALUES (44, 8, 'EV');
 INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
 VALUES (45, 10, 'EV');
-
---Wahlpflichtmodule WP1 bis WP15
-INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
-VALUES (33, 1, 'WP1', 'Machine Learning', 4, 'WP', 5);
-INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
-VALUES (34, 1, 'WP2', 'Deep Learning', 4, 'WP', 5);
-INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
-VALUES (35, 1, 'WP3', 'Vertiefung in Datenbanken und Datenstrukturen', 4, 'WP', 5);
-INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
-VALUES (36, 1, 'WP4', 'Vertiefung in Datenschutz und Datensicherheit', 4, 'WP', 5);
-INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
-VALUES (37, 1, 'WP5', 'IT-Security', 4, 'WP', 5);
-INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
-VALUES (38, 1, 'WP6', 'Programmierung mit Python', 4, 'WP', 5);
-INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
-VALUES (39, 1, 'WP7', 'DevOps', 4, 'WP', 5);
-INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
-VALUES (40, 1, 'WP8', 'Cloud Computing', 4, 'WP', 5);
-INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
-VALUES (41, 1, 'WP9', 'Micro-Service-Architekturen', 4, 'WP', 5);
-INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
-VALUES (42, 1, 'WP10', 'Ethik in Informatik', 4, 'WP', 5);
-INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
-VALUES (43, 1, 'WP11', 'Business Intelligence', 4, 'WP', 5);
-INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
-VALUES (44, 1, 'WP12', 'Design Patterns', 4, 'WP', 5);
-INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
-VALUES (45, 1, 'WP13', 'Progressive Web Apps', 4, 'WP', 5);
-INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
-VALUES (46, 1, 'WP14', 'Besondere Kapitel der Informatik', 4, 'WP', 5);
-INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
-VALUES (47, 1, 'WP15', 'Besondere Kapitel der Wirtschaftsinformatik', 4, 'WP', 5);
