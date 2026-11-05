@@ -32,3 +32,21 @@ INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ect
 VALUES (11, 1, 'B25', 'BWL 2: Rechnungswesen', 2, 'P', 5);
 INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
 VALUES (12, 1, 'B26', '1. Fremdsprache 2', 2, 'P', 4);
+--3.Semester
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (13, 1, 'B31', 'Data Science', 3, 'P', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (14, 1, 'B32', 'Software-Engineering 2', 3, 'P', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (15, 1, 'B33', 'Datenbanksysteme', 3, 'P', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (16, 1, 'B34', 'Softwareentwicklungsprojekt', 3, 'WP', 10);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (17, 1, 'B35', 'Projektmanagement', 3, 'P', 5);
+--4.Semester
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (18, 1, 'B41', 'Wahlpflichtmodul (Wirtschafts-)Informatik 1', 4, 'WP', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (19, 1, 'B42', 'Wissenschaftliches Schreiben', 4, 'P', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (20, 1, 'B43', 'Fachpraktikum', 4, 'WP', 20);
