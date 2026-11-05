@@ -1,4 +1,4 @@
-package htw.projekt.stundenplan.backend.entity;
+package htw.projekt.stundenplan.backend.enums;
 
 public enum VoraussetzungTyp { // Definiert eine feste Liste von Voraussetzungs-Arten
     NV, // Steht für: notwendige Voraussetzung (muss zwingend erfüllt sein)
