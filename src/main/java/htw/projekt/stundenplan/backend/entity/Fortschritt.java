@@ -18,13 +18,13 @@ public class Fortschritt {
     @EmbeddedId  // Zusammengesetzter Primärschlüssel
     private FortschrittId id; // Primärschlüssel der Klasse
 
-    @MapsId ("BenutzerId") // Verbindet die Beziehung mit einem Teil des schlüssels
+    @MapsId ("benutzerId") // Verbindet die Beziehung mit einem Teil des schlüssels
     @ManyToOne(fetch = FetchType.LAZY, optional = false) // Viele Einträge gehören zu einem Eintrag
     @JoinColumn(name = "benutzer_id", nullable = false) // Fremdschlüssel zur anderen Tabelle
     private Benutzerkonto benutzer;
 
     // Verbindet die Beziehung mit einem Teil des Schlüssels
-    @MapsId("ModulId")
+    @MapsId("modulId")
     @ManyToOne(fetch = FetchType.LAZY, optional = false) // Viele Einträge gehören zu einem Eintrag
     @JoinColumn(name = "modul_id", nullable = false)
     private Modul modul;
