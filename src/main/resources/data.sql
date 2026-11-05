@@ -89,6 +89,80 @@ VALUES (4, 17, 'B35.2', 'Konfliktmanagement und Mediation', 'PÜ', 2);
 INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws)
 VALUES (5, 31, 'B65.1', 'Bachelorseminar', 'PS', 1);
 
+--Voraussetzungen der StuPO 2024 (NV und EV)
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (7, 1, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (7, 3, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (8, 5, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (9, 1, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (9, 3, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (10, 1, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (11, 4, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (12, 6, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (13, 3, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (14, 9, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (15, 10, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (16, 1, 'NV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (16, 7, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (16, 10, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (17, 9, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (21, 14, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (22, 10, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (22, 13, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (23, 2, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (25, 19, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (26, 16, 'NV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (26, 7, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (27, 15, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (27, 21, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (28, 4, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (28, 11, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (33, 13, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (34, 13, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (35, 15, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (38, 10, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (39, 14, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (40, 10, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (41, 10, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (43, 15, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (44, 8, 'EV');
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
+VALUES (45, 10, 'EV');
+
 --Wahlpflichtmodule WP1 bis WP15
 INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
 VALUES (33, 1, 'WP1', 'Machine Learning', 4, 'WP', 5);
