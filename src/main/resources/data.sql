@@ -50,3 +50,30 @@ INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ect
 VALUES (19, 1, 'B42', 'Wissenschaftliches Schreiben', 4, 'P', 5);
 INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
 VALUES (20, 1, 'B43', 'Fachpraktikum', 4, 'WP', 20);
+--5.Semester
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (21, 1, 'B51', 'Human Computer Interaction', 5, 'P', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (22, 1, 'B52', 'Verteilte Systeme', 5, 'P', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (23, 1, 'B53', 'Datenschutz und Datensicherheit', 5, 'P', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (24, 1, 'B54', 'Wahlpflichtmodul (Wirtschafts-)Informatik 2', 5, 'WP', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (25, 1, 'B55', 'Informatik und Gesellschaft', 5, 'P', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (26, 1, 'B56', 'Projekte in der Wirtschaft', 5, 'WP', 6);
+--6.Semester
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (27, 1, 'B61', 'Modellierung von Informationssystemen', 6, 'P', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (28, 1, 'B62', 'BWL 3: Berufspraxis IT-Wirtschaft', 6, 'P', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (29, 1, 'B63', 'AWE-Modul 1', 6, 'WP', 2);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (30, 1, 'B64', 'AWE-Modul 2', 6, 'WP', 2);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (31, 1, 'B65', 'Bachelorseminar und Abschlusskolloquium', 6, 'P', 3);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
+VALUES (32, 1, 'B66', 'Bachelorarbeit', 6, 'P', 12);
+
