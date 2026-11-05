@@ -77,3 +77,14 @@ VALUES (31, 1, 'B65', 'Bachelorseminar und Abschlusskolloquium', 6, 'P', 3);
 INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects)
 VALUES (32, 1, 'B66', 'Bachelorarbeit', 6, 'P', 12);
 
+--Modulteile der StuPO 2024
+INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws)
+VALUES (1, 16, 'B34.1', 'Softwareentwicklungsprojekt', 'PS', 4);
+INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws)
+VALUES (2, 16, 'B34.2', 'Arbeitswelt IT', 'PS', 2);
+INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws)
+VALUES (3, 17, 'B35.1', 'Agiles Projektmanagement', 'PÜ', 2);
+INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws)
+VALUES (4, 17, 'B35.2', 'Konfliktmanagement und Mediation', 'PÜ', 2);
+INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws)
+VALUES (5, 31, 'B65.1', 'Bachelorseminar', 'PS', 1);
