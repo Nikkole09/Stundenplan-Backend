@@ -257,3 +257,16 @@ INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ect
 --4.Semester
 INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (65, 2, 'B41', 'Besondere Kapitel der Informatik', 4, 'WP', 5);
 INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (66, 2, 'B42', 'Praxisphase', 4, 'P', 25);
+--5.Semester
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (67, 2, 'B51', 'Modellierung von Informationssystemen', 5, 'P', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (68, 2, 'B52', 'Verteilte Systeme', 5, 'P', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (69, 2, 'B53', 'Praxis in Forschung und Entwicklung', 5, 'WP', 10);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (70, 2, 'B54', 'BWL 3: Betriebswirtschaftliches Denken und Handeln', 5, 'P', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (71, 2, 'B55', 'Besondere Kapitel der Wirtschaftsinformatik', 5, 'WP', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (72, 2, 'B56', 'AWE-Modul 1', 5, 'WP', 2);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (73, 2, 'B57', 'AWE-Modul 2', 5, 'WP', 2);
+--6.Semester
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (74, 2, 'B61', 'Aktuelle Trends der Informations- und Kommunikationstechnik (IKT)', 6, 'P', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (75, 2, 'B62', 'Usability', 6, 'P', 6);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (76, 2, 'B63', 'Bachelorseminar/Kolloquium', 6, 'P', 3);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (77, 2, 'B64', 'Bachelorarbeit', 6, 'P', 12);
