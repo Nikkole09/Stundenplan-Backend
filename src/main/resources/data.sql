@@ -270,3 +270,14 @@ INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ect
 INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (75, 2, 'B62', 'Usability', 6, 'P', 6);
 INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (76, 2, 'B63', 'Bachelorseminar/Kolloquium', 6, 'P', 3);
 INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (77, 2, 'B64', 'Bachelorarbeit', 6, 'P', 12);
+
+-- Modulteile der StuPO 2014
+INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws) VALUES (6, 63, 'B34.1', 'Projekte in der Wirtschaft', 'PS', 4);
+INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws) VALUES (7, 63, 'B34.2', 'Arbeitswelt IT', 'PS', 2);
+INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws) VALUES (8, 64, 'B35.1', 'Projektmanagement', 'PÜ', 2);
+INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws) VALUES (9, 64, 'B35.2', 'Konfliktmanagement und Mediation', 'PÜ', 2);
+INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws) VALUES (10, 66, 'B42.1', 'Fachpraktikum', 'PRAKTIKUM', 0);
+INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws) VALUES (11, 66, 'B42.2', 'Begleitendes Seminar zum Fachpraktikum', 'PS', 1);
+INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws) VALUES (12, 66, 'B42.3', 'Karrieremanagement', 'PÜ', 2);
+INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws) VALUES (13, 69, 'B53.1', 'Projekt', 'PS', 4);
+INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws) VALUES (14, 69, 'B53.2', 'Wissenschaftliches Schreiben', 'PS', 2);
