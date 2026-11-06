@@ -194,3 +194,39 @@ INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzu
 VALUES (44, 8, 'EV');
 INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
 VALUES (45, 10, 'EV');
+
+
+
+-- T2 (Issue-204) : StuPO 17/14 @author: Khawla Yousef
+
+-- Wahlpflichtoptionen für B41 und B54
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (18, 33);
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (18, 34);
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (18, 35);
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (18, 36);
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (18, 37);
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (18, 38);
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (18, 39);
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (18, 40);
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (18, 41);
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (18, 42);
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (18, 43);
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (18, 44);
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (18, 45);
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (18, 46);
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (18, 47);
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 33);
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 34);
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 35);
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 36);
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 37);
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 38);
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 39);
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 40);
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 41);
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 42);
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 43);
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 44);
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 45);
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 46);
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 47);
