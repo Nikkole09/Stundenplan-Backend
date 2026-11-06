@@ -230,3 +230,22 @@ INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 44);
 INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 45);
 INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 46);
 INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 47);
+
+
+-- Module der StuPO 2014
+
+-- 1.Semester
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (48, 2, 'B11', 'Programmierung 1', 1, 'P', 6);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (49, 2, 'B12', 'Rechnerarchitektur/Betriebssysteme', 1, 'P', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (50, 2, 'B13', 'Grundlegende Konzepte der Informatik', 1, 'P', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (51, 2, 'B14', 'BWL 1: Grundlagen der BWL', 1, 'P', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (52, 2, 'B15', 'Mathematik', 1, 'P', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (53, 2, 'B16', 'Fremdsprache 1', 1, 'WP', 4);
+
+--2.Semester
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (54, 2, 'B21', 'Programmierung 2', 2, 'P', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (55, 2, 'B22', 'Rechnernetze', 2, 'P', 6);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (56, 2, 'B23', 'Softwaretechnik', 2, 'P', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (57, 2, 'B24', 'BWL 2: Rechnungswesen', 2, 'P', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (58, 2, 'B25', 'Betriebliche Anwendungen', 2, 'P', 5);
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (59, 2, 'B26', 'Fremdsprache 2', 2, 'WP', 4);
