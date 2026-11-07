@@ -7,6 +7,7 @@
 
 package htw.projekt.stundenplan.backend.entity;
 
+import htw.projekt.stundenplan.backend.enums.VoraussetzungTyp;
 import jakarta.persistence.*;
 
 @Entity
@@ -30,14 +31,14 @@ public class ModulVoraussetzung {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "voraussetzung_typ", nullable = false, length = 2)
-    private htw.projekt.stundenplan.backend.entity.VoraussetzungTyp voraussetzungTyp; // NV = notwendig, EV = empfohlen.
+    private VoraussetzungTyp voraussetzungTyp; // NV = notwendig, EV = empfohlen.
 
     protected ModulVoraussetzung() {
         // Wird von JPA benötigt.
     }
 
     public ModulVoraussetzung(Modul modul, Modul vorausgesetztesModul,
-                              htw.projekt.stundenplan.backend.entity.VoraussetzungTyp voraussetzungTyp) {
+                              VoraussetzungTyp voraussetzungTyp) {
         this.modul = modul;
         this.vorausgesetztesModul = vorausgesetztesModul;
         this.voraussetzungTyp = voraussetzungTyp;
@@ -49,5 +50,5 @@ public class ModulVoraussetzung {
     public ModulVoraussetzungId getId() { return id; }
     public Modul getModul() { return modul; }
     public Modul getVorausgesetztesModul() { return vorausgesetztesModul; }
-    public htw.projekt.stundenplan.backend.entity.VoraussetzungTyp getVoraussetzungTyp() { return voraussetzungTyp; }
+    public VoraussetzungTyp getVoraussetzungTyp() { return voraussetzungTyp; }
 }
