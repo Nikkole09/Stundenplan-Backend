@@ -194,3 +194,122 @@ INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzu
 VALUES (44, 8, 'EV') ON CONFLICT DO NOTHING;
 INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ)
 VALUES (45, 10, 'EV') ON CONFLICT DO NOTHING;
+
+
+
+-- T2 (Issue-204) : StuPO 17/14 @author: Khawla Yousef
+
+-- Wahlpflichtoptionen für B41 und B54
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (18, 33) ON CONFLICT DO NOTHING;
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (18, 34) ON CONFLICT DO NOTHING;
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (18, 35) ON CONFLICT DO NOTHING;
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (18, 36) ON CONFLICT DO NOTHING;
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (18, 37) ON CONFLICT DO NOTHING;
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (18, 38) ON CONFLICT DO NOTHING;
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (18, 39) ON CONFLICT DO NOTHING;
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (18, 40) ON CONFLICT DO NOTHING;
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (18, 41) ON CONFLICT DO NOTHING;
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (18, 42) ON CONFLICT DO NOTHING;
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (18, 43) ON CONFLICT DO NOTHING;
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (18, 44) ON CONFLICT DO NOTHING;
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (18, 45) ON CONFLICT DO NOTHING;
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (18, 46) ON CONFLICT DO NOTHING;
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (18, 47) ON CONFLICT DO NOTHING;
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 33) ON CONFLICT DO NOTHING;
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 34) ON CONFLICT DO NOTHING;
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 35) ON CONFLICT DO NOTHING;
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 36) ON CONFLICT DO NOTHING;
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 37) ON CONFLICT DO NOTHING;
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 38) ON CONFLICT DO NOTHING;
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 39) ON CONFLICT DO NOTHING;
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 40) ON CONFLICT DO NOTHING;
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 41) ON CONFLICT DO NOTHING;
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 42) ON CONFLICT DO NOTHING;
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 43) ON CONFLICT DO NOTHING;
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 44) ON CONFLICT DO NOTHING;
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 45) ON CONFLICT DO NOTHING;
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 46) ON CONFLICT DO NOTHING;
+INSERT INTO wahlpflicht_option (slot_modul_id, wahl_modul_id) VALUES (24, 47) ON CONFLICT DO NOTHING;
+
+
+-- Module der StuPO 2014
+
+-- 1.Semester
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (48, 2, 'B11', 'Programmierung 1', 1, 'P', 6) ON CONFLICT DO NOTHING;
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (49, 2, 'B12', 'Rechnerarchitektur/Betriebssysteme', 1, 'P', 5) ON CONFLICT DO NOTHING;
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (50, 2, 'B13', 'Grundlegende Konzepte der Informatik', 1, 'P', 5) ON CONFLICT DO NOTHING;
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (51, 2, 'B14', 'BWL 1: Grundlagen der BWL', 1, 'P', 5) ON CONFLICT DO NOTHING;
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (52, 2, 'B15', 'Mathematik', 1, 'P', 5) ON CONFLICT DO NOTHING;
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (53, 2, 'B16', 'Fremdsprache 1', 1, 'WP', 4) ON CONFLICT DO NOTHING;
+--2.Semester
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (54, 2, 'B21', 'Programmierung 2', 2, 'P', 5) ON CONFLICT DO NOTHING;
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (55, 2, 'B22', 'Rechnernetze', 2, 'P', 6) ON CONFLICT DO NOTHING;
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (56, 2, 'B23', 'Softwaretechnik', 2, 'P', 5) ON CONFLICT DO NOTHING;
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (57, 2, 'B24', 'BWL 2: Rechnungswesen', 2, 'P', 5) ON CONFLICT DO NOTHING;
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (58, 2, 'B25', 'Betriebliche Anwendungen', 2, 'P', 5) ON CONFLICT DO NOTHING;
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (59, 2, 'B26', 'Fremdsprache 2', 2, 'WP', 4) ON CONFLICT DO NOTHING;
+--3.Semester
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (60, 2, 'B31', 'Webtechnologien', 3, 'P', 5) ON CONFLICT DO NOTHING;
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (61, 2, 'B32', 'Datenschutz und Datensicherheit', 3, 'P', 5) ON CONFLICT DO NOTHING;
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (62, 2, 'B33', 'Datenbanksysteme', 3, 'P', 5) ON CONFLICT DO NOTHING;
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (63, 2, 'B34', 'Projekte in der Wirtschaft', 3, 'WP', 10) ON CONFLICT DO NOTHING;
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (64, 2, 'B35', 'Teamarbeit', 3, 'P', 5) ON CONFLICT DO NOTHING;
+--4.Semester
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (65, 2, 'B41', 'Besondere Kapitel der Informatik', 4, 'WP', 5) ON CONFLICT DO NOTHING;
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (66, 2, 'B42', 'Praxisphase', 4, 'P', 25) ON CONFLICT DO NOTHING;
+--5.Semester
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (67, 2, 'B51', 'Modellierung von Informationssystemen', 5, 'P', 5) ON CONFLICT DO NOTHING;
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (68, 2, 'B52', 'Verteilte Systeme', 5, 'P', 5) ON CONFLICT DO NOTHING;
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (69, 2, 'B53', 'Praxis in Forschung und Entwicklung', 5, 'WP', 10) ON CONFLICT DO NOTHING;
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (70, 2, 'B54', 'BWL 3: Betriebswirtschaftliches Denken und Handeln', 5, 'P', 5) ON CONFLICT DO NOTHING;
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (71, 2, 'B55', 'Besondere Kapitel der Wirtschaftsinformatik', 5, 'WP', 5) ON CONFLICT DO NOTHING;
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (72, 2, 'B56', 'AWE-Modul 1', 5, 'WP', 2) ON CONFLICT DO NOTHING;
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (73, 2, 'B57', 'AWE-Modul 2', 5, 'WP', 2) ON CONFLICT DO NOTHING;
+--6.Semester
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (74, 2, 'B61', 'Aktuelle Trends der Informations- und Kommunikationstechnik (IKT)', 6, 'P', 5) ON CONFLICT DO NOTHING;
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (75, 2, 'B62', 'Usability', 6, 'P', 6) ON CONFLICT DO NOTHING;
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (76, 2, 'B63', 'Bachelorseminar/Kolloquium', 6, 'P', 3) ON CONFLICT DO NOTHING;
+INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ects) VALUES (77, 2, 'B64', 'Bachelorarbeit', 6, 'P', 12) ON CONFLICT DO NOTHING;
+
+-- Modulteile der StuPO 2014
+INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws) VALUES (6, 63, 'B34.1', 'Projekte in der Wirtschaft', 'PS', 4) ON CONFLICT DO NOTHING;
+INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws) VALUES (7, 63, 'B34.2', 'Arbeitswelt IT', 'PS', 2) ON CONFLICT DO NOTHING;
+INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws) VALUES (8, 64, 'B35.1', 'Projektmanagement', 'PÜ', 2) ON CONFLICT DO NOTHING;
+INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws) VALUES (9, 64, 'B35.2', 'Konfliktmanagement und Mediation', 'PÜ', 2) ON CONFLICT DO NOTHING;
+INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws) VALUES (10, 66, 'B42.1', 'Fachpraktikum', 'PRAKTIKUM', 0) ON CONFLICT DO NOTHING;
+INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws) VALUES (11, 66, 'B42.2', 'Begleitendes Seminar zum Fachpraktikum', 'PS', 1) ON CONFLICT DO NOTHING;
+INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws) VALUES (12, 66, 'B42.3', 'Karrieremanagement', 'PÜ', 2) ON CONFLICT DO NOTHING;
+INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws) VALUES (13, 69, 'B53.1', 'Projekt', 'PS', 4) ON CONFLICT DO NOTHING;
+INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws) VALUES (14, 69, 'B53.2', 'Wissenschaftliches Schreiben', 'PS', 2) ON CONFLICT DO NOTHING;
+
+-- Voraussetzungen der StuPO 2014 (NV und EV)
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (54, 48, 'EV') ON CONFLICT DO NOTHING;
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (54, 50, 'EV') ON CONFLICT DO NOTHING;
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (55, 48, 'EV') ON CONFLICT DO NOTHING;
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (55, 50, 'EV') ON CONFLICT DO NOTHING;
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (56, 48, 'EV') ON CONFLICT DO NOTHING;
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (56, 50, 'EV') ON CONFLICT DO NOTHING;
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (57, 51, 'EV') ON CONFLICT DO NOTHING;
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (57, 52, 'EV') ON CONFLICT DO NOTHING;
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (58, 50, 'EV') ON CONFLICT DO NOTHING;
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (58, 51, 'EV') ON CONFLICT DO NOTHING;
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (59, 53, 'EV') ON CONFLICT DO NOTHING;
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (60, 54, 'EV') ON CONFLICT DO NOTHING;
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (61, 55, 'EV') ON CONFLICT DO NOTHING;
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (62, 54, 'EV') ON CONFLICT DO NOTHING;
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (62, 55, 'EV') ON CONFLICT DO NOTHING;
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (63, 54, 'EV') ON CONFLICT DO NOTHING;
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (63, 55, 'EV') ON CONFLICT DO NOTHING;
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (63, 56, 'EV') ON CONFLICT DO NOTHING;
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (64, 58, 'EV') ON CONFLICT DO NOTHING;
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (67, 56, 'EV') ON CONFLICT DO NOTHING;
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (67, 62, 'EV') ON CONFLICT DO NOTHING;
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (68, 60, 'EV') ON CONFLICT DO NOTHING;
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (68, 61, 'EV') ON CONFLICT DO NOTHING;
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (69, 63, 'NV') ON CONFLICT DO NOTHING;
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (70, 57, 'EV') ON CONFLICT DO NOTHING;
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (74, 54, 'EV') ON CONFLICT DO NOTHING;
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (74, 55, 'EV') ON CONFLICT DO NOTHING;
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (75, 70, 'EV') ON CONFLICT DO NOTHING;
+INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (75, 56, 'EV') ON CONFLICT DO NOTHING;
+
