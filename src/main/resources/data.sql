@@ -83,9 +83,9 @@ VALUES (1, 16, 'B34.1', 'Softwareentwicklungsprojekt', 'PS', 4) ON CONFLICT DO N
 INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws)
 VALUES (2, 16, 'B34.2', 'Arbeitswelt IT', 'PS', 2) ON CONFLICT DO NOTHING;
 INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws)
-VALUES (3, 17, 'B35.1', 'Agiles Projektmanagement', 'PÜ', 2) ON CONFLICT DO NOTHING;
+VALUES (3, 17, 'B35.1', 'Agiles Projektmanagement', 'PUE', 2) ON CONFLICT DO NOTHING;
 INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws)
-VALUES (4, 17, 'B35.2', 'Konfliktmanagement und Mediation', 'PÜ', 2) ON CONFLICT DO NOTHING;
+VALUES (4, 17, 'B35.2', 'Konfliktmanagement und Mediation', 'PUE', 2) ON CONFLICT DO NOTHING;
 INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws)
 VALUES (5, 31, 'B65.1', 'Bachelorseminar', 'PS', 1) ON CONFLICT DO NOTHING;
 
@@ -274,11 +274,11 @@ INSERT INTO modul (id, studienordnung_id, nummer, name, semester, modul_typ, ect
 -- Modulteile der StuPO 2014
 INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws) VALUES (6, 63, 'B34.1', 'Projekte in der Wirtschaft', 'PS', 4) ON CONFLICT DO NOTHING;
 INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws) VALUES (7, 63, 'B34.2', 'Arbeitswelt IT', 'PS', 2) ON CONFLICT DO NOTHING;
-INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws) VALUES (8, 64, 'B35.1', 'Projektmanagement', 'PÜ', 2) ON CONFLICT DO NOTHING;
-INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws) VALUES (9, 64, 'B35.2', 'Konfliktmanagement und Mediation', 'PÜ', 2) ON CONFLICT DO NOTHING;
+INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws) VALUES (8, 64, 'B35.1', 'Projektmanagement', 'PUE', 2) ON CONFLICT DO NOTHING;
+INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws) VALUES (9, 64, 'B35.2', 'Konfliktmanagement und Mediation', 'PUE', 2) ON CONFLICT DO NOTHING;
 INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws) VALUES (10, 66, 'B42.1', 'Fachpraktikum', 'PRAKTIKUM', 0) ON CONFLICT DO NOTHING;
 INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws) VALUES (11, 66, 'B42.2', 'Begleitendes Seminar zum Fachpraktikum', 'PS', 1) ON CONFLICT DO NOTHING;
-INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws) VALUES (12, 66, 'B42.3', 'Karrieremanagement', 'PÜ', 2) ON CONFLICT DO NOTHING;
+INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws) VALUES (12, 66, 'B42.3', 'Karrieremanagement', 'PUE', 2) ON CONFLICT DO NOTHING;
 INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws) VALUES (13, 69, 'B53.1', 'Projekt', 'PS', 4) ON CONFLICT DO NOTHING;
 INSERT INTO modul_teil (id, modul_id, nummer, name, form, sws) VALUES (14, 69, 'B53.2', 'Wissenschaftliches Schreiben', 'PS', 2) ON CONFLICT DO NOTHING;
 
@@ -312,4 +312,3 @@ INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzu
 INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (74, 55, 'EV') ON CONFLICT DO NOTHING;
 INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (75, 70, 'EV') ON CONFLICT DO NOTHING;
 INSERT INTO modul_voraussetzung (modul_id, vorausgesetztes_modul_id, voraussetzung_typ) VALUES (75, 56, 'EV') ON CONFLICT DO NOTHING;
-
