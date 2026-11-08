@@ -50,4 +50,8 @@ public class ModulVoraussetzung {
     public Modul getModul() { return modul; }
     public Modul getVorausgesetztesModul() { return vorausgesetztesModul; }
 
+    public VoraussetzungTyp getVoraussetzungTyp() {
+        return voraussetzungTyp;
+    }
+
 }
