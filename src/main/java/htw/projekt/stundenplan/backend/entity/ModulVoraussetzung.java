@@ -7,7 +7,6 @@
 
 package htw.projekt.stundenplan.backend.entity;
 
-import htw.projekt.stundenplan.backend.enums.VoraussetzungTyp;
 import jakarta.persistence.*;
 
 @Entity
