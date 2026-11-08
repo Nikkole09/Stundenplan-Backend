@@ -1,7 +1,6 @@
 package htw.projekt.stundenplan.backend.security;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -21,7 +20,7 @@ public class JwtTokenProvider {
      * HS512 braucht Key Objekt, nicht nur Text!
      */
     private Key getSigningKey() {
-        return Keys.hmacShaKeyFor(jwtSecret.getBytes());
+        return Keys.hmacShaKeyFor(jwtSecret.getBytes(java.nio.charset.StandardCharsets.UTF_8));
     }
     /**
      * Erzeugt neues Token (Ticket) für User
@@ -38,7 +37,7 @@ public class JwtTokenProvider {
                 .setSubject(email) // Wer darf rein? Email reinschreiben
                 .setIssuedAt(now) // Wann erzeugt?
                 .setExpiration(expiryDate) // Wann läuft ab?
-                .signWith(getSigningKey(), SignatureAlgorithm.HS512) // Mit geheimem Stempel unterschreiben
+                .signWith(getSigningKey()) // Mit geheimem Stempel unterschreiben
                 .compact(); // Alles zu einem String zusammenpacken: header.payload.signature
     }
     /**
