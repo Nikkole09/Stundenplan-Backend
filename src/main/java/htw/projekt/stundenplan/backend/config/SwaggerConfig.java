@@ -8,8 +8,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Diese Klasse sagt Swagger, dass wir einen Schlüssel (Token) brauchen,
- * um geschützte Endpunkte zu benutzen.
+ * Diese Klasse sagt Swagger, dass wir einen Schlüssel (Token) brauchen, um geschützte Endpunkte zu benutzen.
+ *
  * @author Maeva Nguemezi
  */
 @Configuration
