@@ -8,6 +8,13 @@ import org.springframework.stereotype.Component;
 import java.security.Key;
 import java.util.Date;
 
+/**
+ * Erzeugt und prüft JWT-Token.
+ * Unterschreibt Token mit einem geheimen Schlüssel und liest die E-Mail aus einem Token aus.
+ *
+ * @author Maeva Nguemezi
+ */
+
 @Component
 public class JwtTokenProvider {
     @Value("${app.jwtSecret}")
@@ -17,7 +24,7 @@ public class JwtTokenProvider {
     private long jwtExpirationMs; // Liest Ablaufzeit aus application.properties -> Wie lange Token gültig (86400000 = 24h)
     /**
      * Macht aus Text Secret einen echten Schlüssel (Key Objekt)
-     * HS512 braucht Key Objekt, nicht nur Text!
+     *   HS256 braucht Key Objekt, nicht nur Text!
      */
     private Key getSigningKey() {
         return Keys.hmacShaKeyFor(jwtSecret.getBytes(java.nio.charset.StandardCharsets.UTF_8));
