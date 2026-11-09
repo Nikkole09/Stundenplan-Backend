@@ -1,13 +1,19 @@
 package htw.projekt.stundenplan.backend.security;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.security.Key;
 import java.util.Date;
+
+/**
+ * Erzeugt und prüft JWT-Token.
+ * Unterschreibt Token mit einem geheimen Schlüssel und liest die E-Mail aus einem Token aus.
+ *
+ * @author Maeva Nguemezi
+ */
 
 @Component
 public class JwtTokenProvider {
@@ -18,10 +24,10 @@ public class JwtTokenProvider {
     private long jwtExpirationMs; // Liest Ablaufzeit aus application.properties -> Wie lange Token gültig (86400000 = 24h)
     /**
      * Macht aus Text Secret einen echten Schlüssel (Key Objekt)
-     * HS512 braucht Key Objekt, nicht nur Text!
+     *   HS256 braucht Key Objekt, nicht nur Text!
      */
     private Key getSigningKey() {
-        return Keys.hmacShaKeyFor(jwtSecret.getBytes());
+        return Keys.hmacShaKeyFor(jwtSecret.getBytes(java.nio.charset.StandardCharsets.UTF_8));
     }
     /**
      * Erzeugt neues Token (Ticket) für User
@@ -38,7 +44,7 @@ public class JwtTokenProvider {
                 .setSubject(email) // Wer darf rein? Email reinschreiben
                 .setIssuedAt(now) // Wann erzeugt?
                 .setExpiration(expiryDate) // Wann läuft ab?
-                .signWith(getSigningKey(), SignatureAlgorithm.HS512) // Mit geheimem Stempel unterschreiben
+                .signWith(getSigningKey()) // Mit geheimem Stempel unterschreiben
                 .compact(); // Alles zu einem String zusammenpacken: header.payload.signature
     }
     /**
