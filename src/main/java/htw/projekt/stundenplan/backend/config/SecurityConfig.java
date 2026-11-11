@@ -91,6 +91,10 @@ public class SecurityConfig {
      * - Admin-Verwaltung nur mit ROLE_ADMIN
      * - Alle weiteren Endpunkte nur mit Anmeldung
      *
+     * Fehlerbehandlung:
+     * - 401 Unauthorized bei fehlender Authentifizierung
+     * - 403 Forbidden bei fehlender Berechtigung
+     *
      * @param http HttpSecurity
      * @return SecurityFilterChain
      * @throws Exception bei Konfigurationsfehlern
@@ -112,6 +116,28 @@ public class SecurityConfig {
 
                 .httpBasic(basic -> basic.disable())
 
+                // T5: HTTP 401 und 403 unterscheiden
+                .exceptionHandling(exceptions -> exceptions
+
+                        // Nicht angemeldet -> 401 Unauthorized
+                        .authenticationEntryPoint(
+                                (request, response, authException) ->
+                                        response.sendError(
+                                                401,
+                                                "Unauthorized"
+                                        )
+                        )
+
+                        // Angemeldet, aber keine Berechtigung -> 403
+                        .accessDeniedHandler(
+                                (request, response, accessDeniedException) ->
+                                        response.sendError(
+                                                403,
+                                                "Forbidden"
+                                        )
+                        )
+                )
+
                 .authorizeHttpRequests(auth -> auth
 
                         // Login und Registrierung erlauben
@@ -130,7 +156,8 @@ public class SecurityConfig {
                         )
                         .permitAll()
 
-                        // Nur Administratorinnen erlauben
+                        // T5: Nur Administratoren dürfen
+                        // Professorenkonten erstellen
                         .requestMatchers("/api/admin/**")
                         .hasAuthority("ROLE_ADMIN")
 
