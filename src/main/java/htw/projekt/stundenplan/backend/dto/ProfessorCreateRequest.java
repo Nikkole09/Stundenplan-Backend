@@ -5,7 +5,6 @@ import jakarta.validation.constraints.NotBlank;
 
 /**
  * Name: ProfessorCreateRequest
- * Author: Nicole Eisner
  *
  * Funktion:
  * Dieses DTO nimmt die Daten entgegen, die eine Administratorin
@@ -18,6 +17,7 @@ import jakarta.validation.constraints.NotBlank;
  * (must_change_pw = true) werden später vom Backend festgelegt
  * und können nicht über dieses DTO verändert werden.
  * 
+ * @author Nicole Eisner
  */
 
 public class ProfessorCreateRequest {
