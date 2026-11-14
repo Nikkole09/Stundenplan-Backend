@@ -1,176 +1,99 @@
-
 package htw.projekt.stundenplan.backend.config;
 
 import htw.projekt.stundenplan.backend.security.JwtAuthenticationFilter;
-
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
-
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 /**
- * Konfiguriert die Sicherheit der Anwendung.
- *
- * Legt fest, welche Endpunkte öffentlich zugänglich sind
- * und welche bestimmte Benutzerberechtigungen benötigen.
- *
- * Registriert den JWT-Filter für die Authentifizierung
- * und schützt die administrativen Endpunkte.
+ * Legt fest, welche Endpunkte ohne Token erreichbar sind und welche geschützt sind.
+ * Meldet den JwtAuthenticationFilter an, der Token vor jedem Request prüft.
  *
  * @author Maeva Nguemezi
  */
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
-
-    /**
-     * Erstellt die Security-Konfiguration.
-     *
-     * @param jwtAuthenticationFilter Filter zur JWT-Prüfung
-     */
     public SecurityConfig(JwtAuthenticationFilter jwtAuthenticationFilter) {
         this.jwtAuthenticationFilter = jwtAuthenticationFilter;
     }
 
+
     /**
-     * Verwendet vorübergehend einen PasswordEncoder
-     * ohne Verschlüsselung für Testkonten.
+     * PasswordEncoder = Wie Passwort gespeichert wird
      *
-     * Vor dem produktiven Einsatz muss ein sicherer
-     * PasswordEncoder verwendet werden.
+     * JETZT: NoOpPasswordEncoder = Klartext! Passwort bleibt lesbar in DB
+     *
+     * SPÄTER vor Abgabe: BCryptPasswordEncoder = Gehasht!
      *
      * @return PasswordEncoder
      */
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return NoOpPasswordEncoder.getInstance();
+        return NoOpPasswordEncoder.getInstance(); //später zu return new BCryptPasswordEncoder() ändern damit es nicht mehr klartext ist;
     }
 
     /**
-     * Verhindert, dass der JWT-Filter zusätzlich
-     * als normaler Servlet-Filter registriert wird.
-     *
-     * Der Filter soll ausschließlich innerhalb
-     * der Spring-Security-Filterkette laufen.
-     *
-     * @param filter JWT-Authentifizierungsfilter
-     * @return deaktivierte Servlet-Registrierung
+     * Verhindert eine zusätzliche Servlet-Registrierung des JWT-Filters.
+     * Der Filter wird weiterhin über die Spring-Security-Filterkette ausgeführt.
      */
-    @Bean
-    public FilterRegistrationBean<JwtAuthenticationFilter> jwtFilterRegistration(
-            JwtAuthenticationFilter filter) {
+     @Bean
+     public FilterRegistrationBean<JwtAuthenticationFilter> jwtFilterRegistration(
+        JwtAuthenticationFilter filter) {
 
-        FilterRegistrationBean<JwtAuthenticationFilter> registration =
-                new FilterRegistrationBean<>(filter);
+    FilterRegistrationBean<JwtAuthenticationFilter> registration =
+            new FilterRegistrationBean<>(filter);
 
-        registration.setEnabled(false);
+    registration.setEnabled(false);
 
-        return registration;
-    }
+    return registration;
+     }
 
     /**
-     * Definiert die Sicherheitsregeln für HTTP-Anfragen.
-     *
-     * Öffentliche Endpunkte:
-     * - Authentifizierung
-     * - Swagger-Dokumentation
-     * - Fehlerbehandlung
-     *
-     * Geschützte Endpunkte:
-     * - Admin-Verwaltung nur mit ROLE_ADMIN
-     * - Alle weiteren Endpunkte nur mit Anmeldung
-     *
-     * Fehlerbehandlung:
-     * - 401 Unauthorized bei fehlender Authentifizierung
-     * - 403 Forbidden bei fehlender Berechtigung
+     * SecurityFilterChain = Welche URLs dürfen ohne Token, welche nicht?
      *
      * @param http HttpSecurity
      * @return SecurityFilterChain
-     * @throws Exception bei Konfigurationsfehlern
+     * @throws Exception
      */
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http)
-            throws Exception {
-
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(csrf -> csrf.disable())
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .formLogin(form -> form.disable()) // "Please sign in" ausschalten!
 
-                .sessionManagement(session ->
-                        session.sessionCreationPolicy(
-                                SessionCreationPolicy.STATELESS
-                        )
-                )
-
-                .formLogin(form -> form.disable())
-
-                .httpBasic(basic -> basic.disable())
-
-                // T5: HTTP 401 und 403 unterscheiden
+                // HTTP-Statuscodes 401 und 403 unterscheiden
                 .exceptionHandling(exceptions -> exceptions
-
-                        // Nicht angemeldet -> 401 Unauthorized
-                        .authenticationEntryPoint(
-                                (request, response, authException) ->
-                                        response.sendError(
-                                                401,
-                                                "Unauthorized"
-                                        )
-                        )
-
-                        // Angemeldet, aber keine Berechtigung -> 403
-                        .accessDeniedHandler(
-                                (request, response, accessDeniedException) ->
-                                        response.sendError(
-                                                403,
-                                                "Forbidden"
-                                        )
-                        )
+                    .authenticationEntryPoint(
+                 (request, response, authException) ->
+                       response.sendError(401, "Unauthorized")
+                      )
+                .accessDeniedHandler(
+                  (request, response, accessDeniedException) ->
+                   response.sendError(403, "Forbidden")
+                      )
                 )
 
+                .httpBasic(basic -> basic.disable()) // Popup ausschalten!
                 .authorizeHttpRequests(auth -> auth
-
-                        // Login und Registrierung erlauben
-                        .requestMatchers("/api/auth/**")
-                        .permitAll()
-
-                        // Fehlerbehandlung erlauben
-                        .requestMatchers("/error")
-                        .permitAll()
-
-                        // Swagger-Dokumentation erlauben
-                        .requestMatchers(
-                                "/swagger-ui/**",
-                                "/swagger-ui.html",
-                                "/v3/api-docs/**"
-                        )
-                        .permitAll()
-
-                        // T5: Nur Administratoren dürfen
-                        // Professorenkonten erstellen
-                        .requestMatchers("/api/admin/**")
-                        .hasAuthority("ROLE_ADMIN")
-
-                        // Alle anderen Endpunkte benötigen Anmeldung
-                        .anyRequest()
-                        .authenticated()
+                        .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/swagger-ui/**", "/swagger-ui.html", "/v3/api-docs", "/v3/api-docs/**").permitAll()
+                        .requestMatchers("/error").permitAll() // Fehlerbehandlung erlauben
+                        .requestMatchers("/api/admin/professors").hasAuthority("ROLE_ADMIN")  // Nur Administratoren dürfen Professorenkonten erstellen
+                        .anyRequest().authenticated()
                 )
-
-                .addFilterBefore(
-                        jwtAuthenticationFilter,
-                        UsernamePasswordAuthenticationFilter.class
-                );
-
+        .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 }
