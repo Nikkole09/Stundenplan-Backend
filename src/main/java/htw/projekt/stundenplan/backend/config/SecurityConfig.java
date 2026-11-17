@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
@@ -32,15 +32,13 @@ public class SecurityConfig {
     /**
      * PasswordEncoder = Wie Passwort gespeichert wird
      *
-     * JETZT: NoOpPasswordEncoder = Klartext! Passwort bleibt lesbar in DB
-     *
-     * SPÄTER vor Abgabe: BCryptPasswordEncoder = Gehasht!
+     * BCryptPasswordEncoder = Passwort wird gehasht gespeichert
      *
      * @return PasswordEncoder
      */
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return NoOpPasswordEncoder.getInstance(); //später zu return new BCryptPasswordEncoder() ändern damit es nicht mehr klartext ist;
+        return new BCryptPasswordEncoder();
     }
 
     /**
