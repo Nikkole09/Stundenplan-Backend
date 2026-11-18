@@ -40,6 +40,26 @@ public class Benutzerkonto {
     @Column(name = "passwort_aendern_pflicht", nullable = false)
     private boolean passwortAendernPflicht = false;
 
+    // Speichert als (true) oder (false), ob die Studentin 
+    // die Willkommens-Box auf dem Dashboard schon erledigt hat.
+    // Standard ist false (sie muss die Box also noch sehen).
+    @Column(name = "dashboard_onboarding_done", nullable = false)
+    private boolean dashboardOnboardingDone = false;
+
+
+     //Prüft, ob das Onboarding schon fertig ist. 
+     //Gibt true zurück, wenn die Willkommens-Box nicht mehr angezeigt werden soll.
+    public boolean isDashboardOnboardingDone() {
+        return dashboardOnboardingDone;
+    }
+
+
+      //Speichert den neuen Status ab (z.B. auf true, wenn sie auf einen Button geklickt hat).
+    public void setDashboardOnboardingDone(boolean dashboardOnboardingDone) {
+        this.dashboardOnboardingDone = dashboardOnboardingDone;
+    }
+
+
     protected Benutzerkonto() { // JPA benötigt diesen leeren Konstruktor
     }
 
