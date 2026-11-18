@@ -1,4 +1,4 @@
-package htw.projekt.stundenplan.backend.dto.dashboard; 
+package htw.projekt.stundenplan.backend.service;
 
 import htw.projekt.stundenplan.backend.entity.Benutzerkonto;
 import htw.projekt.stundenplan.backend.repository.BenutzerkontoRepository;
