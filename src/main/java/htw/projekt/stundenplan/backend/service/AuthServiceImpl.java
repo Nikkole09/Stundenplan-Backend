@@ -74,7 +74,8 @@ public class AuthServiceImpl implements AuthService {
                 email,
                 passwordEncoder.encode(request.password()),
                 Rolle.ROLE_STUDENT,
-                studienordnung
+                studienordnung,
+                request.studienjahrgang().trim()
         );
 
         // Benutzerkonto speichern
@@ -85,7 +86,8 @@ public class AuthServiceImpl implements AuthService {
                 gespeichert.getId(),
                 gespeichert.getEmail(),
                 gespeichert.getRolle().name(),
-                studienordnung.getId()
+                studienordnung.getId(),
+                gespeichert.getStudienjahrgang()
         );
     }
 

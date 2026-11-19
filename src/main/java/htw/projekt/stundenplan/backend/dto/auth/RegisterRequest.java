@@ -25,6 +25,10 @@ public record RegisterRequest(
     @NotNull(message = "Studienordnung muss ausgewählt werden")
     @Positive
     @JsonProperty("studienordnung_id")
-    Long studienordnungId
+    Long studienordnungId,
+
+    @NotBlank(message = "Studienjahrgang darf nicht leer sein")
+    @JsonProperty("studienjahrgang")
+    String studienjahrgang
 
 ) {}

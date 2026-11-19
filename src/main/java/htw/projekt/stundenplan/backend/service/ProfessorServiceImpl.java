@@ -65,6 +65,7 @@ public class ProfessorServiceImpl implements ProfessorService {
                 email,
                 anfangspasswort,
                 Rolle.ROLE_PROF,
+                null,
                 null
         );
 
