@@ -4,5 +4,6 @@ public record RegisterResponse(
     Long id,
     String email,
     String role,
-    Long studienordnungId
+    Long studienordnungId,
+    String studienjahrgang
 ) {}
