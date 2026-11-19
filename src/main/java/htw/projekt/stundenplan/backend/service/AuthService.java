@@ -11,4 +11,11 @@ public interface AuthService {
     RegisterResponse register(RegisterRequest request);
 
     AuthResponse login(LoginRequest request);
+
+    void passwortZuruecksetzen(String email);
+
+    void passwortNeuSetzen(
+            String token,
+            String neuesPasswort
+    );
 }
