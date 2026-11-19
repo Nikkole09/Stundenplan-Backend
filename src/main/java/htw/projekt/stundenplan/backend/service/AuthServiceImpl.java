@@ -1,4 +1,3 @@
-
 package htw.projekt.stundenplan.backend.service;
 
 import java.nio.charset.StandardCharsets;
@@ -10,7 +9,6 @@ import java.time.temporal.ChronoUnit;
 import java.util.Base64;
 import java.util.HexFormat;
 import java.util.List;
-import java.util.Locale;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -66,27 +64,25 @@ public class AuthServiceImpl implements AuthService {
     // ------------------------------------
     // Bestehende Registrierung
     // ------------------------------------
-
     @Override
     @Transactional
     public RegisterResponse register(RegisterRequest request) {
 
-        String email = request.email()
-                .trim()
-                .toLowerCase(Locale.ROOT);
+        String email = request.email().trim();
 
-        if (benutzerkontoRepository.findByEmail(email).isPresent()) {
+        if (
+benutzerkontoRepository.findByEmailIgnoreCase(email).isPresent()) {
             throw new ResponseStatusException(
                     HttpStatus.CONFLICT,
                     "E-Mail ist bereits registriert"
             );
         }
 
-        Studienordnung studienordnung =
-                studienordnungRepository
+        Studienordnung studienordnung
+                = studienordnungRepository
                         .findById(request.studienordnungId())
-                        .orElseThrow(() ->
-                                new ResponseStatusException(
+                        .orElseThrow(()
+                                -> new ResponseStatusException(
                                         HttpStatus.BAD_REQUEST,
                                         "Studienordnung nicht gefunden"
                                 )
@@ -100,8 +96,8 @@ public class AuthServiceImpl implements AuthService {
                 studienordnung
         );
 
-        Benutzerkonto gespeichert =
-                benutzerkontoRepository.save(benutzerkonto);
+        Benutzerkonto gespeichert
+                = benutzerkontoRepository.save(benutzerkonto);
 
         return new RegisterResponse(
                 gespeichert.getId(),
@@ -114,19 +110,18 @@ public class AuthServiceImpl implements AuthService {
     // ------------------------------------
     // Bestehender Login
     // ------------------------------------
-
     @Override
     public AuthResponse login(LoginRequest request) {
 
-        String email = request.email()
-                .trim()
-                .toLowerCase(Locale.ROOT);
+        
+      String email = request.email().trim();
 
-        Benutzerkonto benutzerkonto =
-                benutzerkontoRepository
-                        .findByEmail(email)
-                        .orElseThrow(() ->
-                                new ResponseStatusException(
+
+        Benutzerkonto benutzerkonto
+                = benutzerkontoRepository
+                        .findByEmailIgnoreCase(email)
+                        .orElseThrow(()
+                                -> new ResponseStatusException(
                                         HttpStatus.UNAUTHORIZED,
                                         "Ungültige Anmeldedaten"
                                 )
@@ -157,7 +152,6 @@ public class AuthServiceImpl implements AuthService {
     // ------------------------------------
     // Neu: Passwort-Reset anfordern
     // ------------------------------------
-
     @Override
     @Transactional
     public void passwortZuruecksetzen(String email) {
@@ -168,17 +162,17 @@ public class AuthServiceImpl implements AuthService {
             return;
         }
 
-        String normalisierteEmail = email
-                .trim()
-                .toLowerCase(Locale.ROOT);
+        
+String emailAdresse = email.trim();
 
-        if (!normalisierteEmail.matches(
-                "^[^\\s@]+@(student\\.)?htw-berlin\\.de$")) {
-            return;
-        }
+if (!emailAdresse.matches(
+        "(?i)^[^\\s@]+@student\\.htw-berlin\\.de$")) {
+    return;
+}
+
 
         benutzerkontoRepository
-                .findByEmail(normalisierteEmail)
+                .findByEmailIgnoreCase(emailAdresse)
                 .filter(Benutzerkonto::getAktiv)
                 .ifPresent(benutzerkonto -> {
 
@@ -195,8 +189,8 @@ public class AuthServiceImpl implements AuthService {
                             .deleteByBenutzerkonto(benutzerkonto);
 
                     // Token-Hash mit Ablaufzeit speichern
-                    PasswortResetToken resetToken =
-                            new PasswortResetToken(
+                    PasswortResetToken resetToken
+                            = new PasswortResetToken(
                                     hashToken(token),
                                     Instant.now().plus(
                                             30,
@@ -213,21 +207,20 @@ public class AuthServiceImpl implements AuthService {
                             .registerSynchronization(
                                     new TransactionSynchronization() {
 
-                        @Override
-                        public void afterCommit() {
-                            resetMailService.sendeResetMail(
-                                    benutzerkonto.getEmail(),
-                                    token
-                            );
-                        }
-                    });
+                                @Override
+                                public void afterCommit() {
+                                    resetMailService.sendeResetMail(
+                                            benutzerkonto.getEmail(),
+                                            token
+                                    );
+                                }
+                            });
                 });
     }
 
     // ------------------------------------
     // Neu: Passwort mit Token ändern
     // ------------------------------------
-
     @Override
     @Transactional
     public void passwortNeuSetzen(
@@ -258,11 +251,11 @@ public class AuthServiceImpl implements AuthService {
         }
 
         // Token über seinen Hash suchen
-        PasswortResetToken resetToken =
-                resetTokenRepository
+        PasswortResetToken resetToken
+                = resetTokenRepository
                         .findByTokenHash(hashToken(token))
-                        .orElseThrow(() ->
-                                new ResponseStatusException(
+                        .orElseThrow(()
+                                -> new ResponseStatusException(
                                         HttpStatus.BAD_REQUEST,
                                         "Ungültiger oder abgelaufener Reset-Token"
                                 )
@@ -278,8 +271,8 @@ public class AuthServiceImpl implements AuthService {
             );
         }
 
-        Benutzerkonto benutzerkonto =
-                resetToken.getBenutzerkonto();
+        Benutzerkonto benutzerkonto
+                = resetToken.getBenutzerkonto();
 
         if (!benutzerkonto.getAktiv()) {
             throw new ResponseStatusException(
@@ -304,12 +297,11 @@ public class AuthServiceImpl implements AuthService {
     // ------------------------------------
     // Neu: SHA-256-Hash des Reset-Tokens
     // ------------------------------------
-
     private String hashToken(String token) {
 
         try {
-            MessageDigest digest =
-                    MessageDigest.getInstance("SHA-256");
+            MessageDigest digest
+                    = MessageDigest.getInstance("SHA-256");
 
             byte[] hash = digest.digest(
                     token.getBytes(StandardCharsets.UTF_8)
