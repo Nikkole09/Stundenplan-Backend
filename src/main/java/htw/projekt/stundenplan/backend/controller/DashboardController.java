@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.math.BigDecimal;
 
 /**
  * REST-Endpunkte für die persönliche Dashboard-Übersicht.
@@ -57,15 +58,17 @@ public class DashboardController {
         List<DashboardModule> modules = dashboardService.loadModules(user);  // Module der Studienordnung und Fortschritte laden
         List<DashboardSemester> semesters = dashboardService.groupBySemester(modules); // Vorhandene Module nach Semester gruppieren
 
-        // Dashboard-Antwort mit echten Moduldaten zurückgeben
-        return new DashboardResponse(
-                dashboardUser,
-                !user.isDashboardOnboardingDone(),
-                null,
-                null,
-                null,
-                semesters
+        // LP aus den echten Modulen berechnen.
+        int completedEcts = dashboardService.calculateCompletedEcts(
+                modules
         );
+
+        // Das Studienziel stammt aus der Studienordnung.
+        Integer totalEcts = user.getStudienordnung().getGesamtEcts();
+
+        // Notendurchschnitt anhand der bestandenen Module berechnen.
+        BigDecimal weightedAverage =
+                dashboardService.calculateWeightedAverage(modules);
     }
 
     /**
