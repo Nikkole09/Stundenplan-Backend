@@ -24,6 +24,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 @Service
 public class DashboardService {
@@ -93,4 +95,62 @@ public class DashboardService {
         return gruppiert.entrySet().stream()
         .map(e -> new DashboardSemester(e.getKey(), e.getValue())).toList();
     }
+
+    /**
+ * Berechnet die gesamten LP aller bestandenen Module
+ */
+public int calculateCompletedEcts(List<DashboardModule> module) {
+
+    return module.stream()
+            .filter(this::isPassed)
+            .mapToInt(DashboardModule::ects)
+            .sum();
+}
+
+/**
+ * Berechnet den Notendurchschnitt.
+ * Es werden nur bestandene Module mit gültiger Note
+ * Module mit mehr LP haben mehr gewicht
+ */
+public BigDecimal calculateWeightedAverage(
+        List<DashboardModule> module) {
+
+    BigDecimal weightedSum = BigDecimal.ZERO;
+    int gradedEcts = 0;
+
+    for (DashboardModule modul : module) {
+
+        // Nur bestandene Module mit Note berücksichtigen.
+        if (!isPassed(modul) || modul.note() == null) {
+            continue;
+        }
+
+        BigDecimal ects = BigDecimal.valueOf(modul.ects());
+
+        BigDecimal weightedGrade = modul.note()
+                .multiply(ects);
+
+        weightedSum = weightedSum.add(weightedGrade);
+        gradedEcts += modul.ects();
+    }
+
+    // Ohne benotete Module gibt es keinen Durchschnitt.
+    if (gradedEcts == 0) {
+        return null;
+    }
+
+    return weightedSum.divide(
+            BigDecimal.valueOf(gradedEcts),
+            2,
+            RoundingMode.HALF_UP
+    );
+}
+
+/**
+ * Prüft, ob ein Modul den Status bestanden wurde.
+ */
+private boolean isPassed(DashboardModule modul) {
+
+    return "BESTANDEN".equals(modul.status());
+}
 }
