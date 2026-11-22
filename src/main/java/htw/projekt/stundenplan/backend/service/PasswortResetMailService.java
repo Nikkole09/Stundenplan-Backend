@@ -1,3 +1,4 @@
+
 package htw.projekt.stundenplan.backend.service;
 
 import java.net.URLEncoder;
@@ -16,7 +17,9 @@ import org.springframework.stereotype.Service;
 public class PasswortResetMailService {
 
     private static final Logger log =
-            LoggerFactory.getLogger(PasswortResetMailService.class);
+            LoggerFactory.getLogger(
+                    PasswortResetMailService.class
+            );
 
     private final JavaMailSender mailSender;
     private final String frontendUrl;
@@ -37,6 +40,7 @@ public class PasswortResetMailService {
     @Async
     public void sendeResetMail(String email, String token) {
 
+        // Link mit Reset-Token erstellen
         String link = frontendUrl
                 + "?token="
                 + URLEncoder.encode(
@@ -52,7 +56,8 @@ public class PasswortResetMailService {
         nachricht.setSubject("Passwort zurücksetzen");
 
         nachricht.setText(
-                "Du hast angefordert, dein Passwort zurückzusetzen.\n\n"
+                "Du hast angefordert, dein Passwort "
+                + "zurückzusetzen.\n\n"
                 + "Öffne diesen Link:\n"
                 + link
                 + "\n\nDer Link ist 30 Minuten gültig.\n"
@@ -62,6 +67,7 @@ public class PasswortResetMailService {
 
         try {
             mailSender.send(nachricht);
+
         } catch (MailException e) {
             log.error(
                     "Passwort-Reset-Mail konnte nicht versendet werden.",
