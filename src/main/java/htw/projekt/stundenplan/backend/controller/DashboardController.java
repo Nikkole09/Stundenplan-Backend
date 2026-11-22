@@ -5,6 +5,10 @@ import htw.projekt.stundenplan.backend.dto.dashboard.DashboardUser;
 import htw.projekt.stundenplan.backend.entity.Benutzerkonto;
 import htw.projekt.stundenplan.backend.service.CurrentUserService;
 import htw.projekt.stundenplan.backend.service.DashboardOnboardingService;
+import htw.projekt.stundenplan.backend.service.DashboardService;
+import htw.projekt.stundenplan.backend.dto.dashboard.DashboardModule;
+import htw.projekt.stundenplan.backend.dto.dashboard.DashboardSemester;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,16 +29,18 @@ public class DashboardController {
 
     private final CurrentUserService currentUserService;
     private final DashboardOnboardingService onboardingService;
+    private final DashboardService dashboardService;
 
     public DashboardController(
             CurrentUserService currentUserService,
-            DashboardOnboardingService onboardingService) {
+            DashboardOnboardingService onboardingService, DashboardService dashboardService) {
         this.currentUserService = currentUserService;
         this.onboardingService = onboardingService;
+        this.dashboardService = dashboardService;
     }
 
     /**
-     * GET-Endpunkt: Lädt die Startseite. 
+     * GET-Endpunkt: Lädt die Startseite.
      * Schickt die Profildaten und den Status für die Willkommens-Box an das Frontend.
      */
     @GetMapping
@@ -48,13 +54,17 @@ public class DashboardController {
                 null
         );
 
+        List<DashboardModule> modules = dashboardService.loadModules(user);  // Module der Studienordnung und Fortschritte laden
+        List<DashboardSemester> semesters = dashboardService.groupBySemester(modules); // Vorhandene Module nach Semester gruppieren
+
+        // Dashboard-Antwort mit echten Moduldaten zurückgeben
         return new DashboardResponse(
                 dashboardUser,
                 !user.isDashboardOnboardingDone(),
                 null,
                 null,
                 null,
-                List.of()
+                semesters
         );
     }
 
