@@ -71,6 +71,16 @@ public class DashboardController {
                 dashboardService.calculateWeightedAverage(modules);
     }
 
+     // Dashboard-Antwort mit echten Moduldaten zurückgeben (davor waren sie auf null)
+        return new DashboardResponse(
+            dashboardUser,
+            !user.isDashboardOnboardingDone(),
+            completedEcts,
+            totalEcts,
+            weightedAverage,
+            semesters
+        );
+
     /**
      * PATCH-Endpunkt: Wird aufgerufen, wenn die Studentin die Willkommens-Box wegdrückt.
      * Speichert ab, dass das Onboarding erledigt ist.
