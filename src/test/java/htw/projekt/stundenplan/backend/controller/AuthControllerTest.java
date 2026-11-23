@@ -51,7 +51,7 @@ class AuthControllerTest {
                       "name": "Max Mustermann",
                       "email": "max@example.com",
                       "password": "Test12345!",
-                      "studienordnung_id": 1
+                      "studienordnung_id": 1,
                       "studienjahrgang": "2024"
                     }
                     """))
