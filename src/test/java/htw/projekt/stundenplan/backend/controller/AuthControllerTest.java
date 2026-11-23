@@ -1,4 +1,3 @@
-
 package htw.projekt.stundenplan.backend.controller;
 
 import java.util.List;
@@ -41,7 +40,8 @@ class AuthControllerTest {
                         1L,
                         "max@example.com",
                         "ROLE_STUDENT",
-                        1L
+                        1L,
+                        "2024"
                 ));
 
         mockMvc.perform(post("/api/auth/register")
@@ -52,13 +52,16 @@ class AuthControllerTest {
                       "email": "max@example.com",
                       "password": "Test12345!",
                       "studienordnung_id": 1
+                      "studienjahrgang": "2024"
                     }
                     """))
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.email")
                         .value("max@example.com"))
                 .andExpect(jsonPath("$.role")
-                        .value("ROLE_STUDENT"));
+                        .value("ROLE_STUDENT"))
+                .andExpect(jsonPath("$.studienjahrgang")
+                        .value("2024"));
     }
 
     @Test
