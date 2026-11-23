@@ -1,10 +1,11 @@
 package htw.projekt.stundenplan.backend.dto.auth;
 
-import jakarta.validation.Validation;
-import jakarta.validation.Validator;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import jakarta.validation.Validation;
+import jakarta.validation.Validator;
 
 class RegisterRequestTest {
 
@@ -14,11 +15,12 @@ class RegisterRequestTest {
     @Test
     void gueltigeRegistrierung() {
         RegisterRequest request = new RegisterRequest(
-                "Max Mustermann",
-                "max@example.com",
-                "Test12345!",
-                1L
-        );
+        "Max Mustermann",
+        "max@example.com",
+        "Test12345!",
+        1L,
+        "2024"
+);
 
         assertTrue(validator.validate(request).isEmpty());
     }
@@ -29,7 +31,8 @@ class RegisterRequestTest {
                 "Max Mustermann",
                 "ungueltige-email",
                 "Test12345!",
-                1L
+                1L,
+                "2024"
         );
 
         assertFalse(validator.validate(request).isEmpty());
@@ -41,7 +44,8 @@ class RegisterRequestTest {
                 "Max Mustermann",
                 "max@example.com",
                 "123",
-                1L
+                1L,
+                "2024"
         );
 
         assertFalse(validator.validate(request).isEmpty());
