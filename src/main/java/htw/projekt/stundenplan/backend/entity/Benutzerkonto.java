@@ -59,16 +59,19 @@ public class Benutzerkonto {
         this.dashboardOnboardingDone = dashboardOnboardingDone;
     }
 
+    @Column(name = "studienjahrgang", columnDefinition = "TEXT")
+    private String studienjahrgang;
 
     protected Benutzerkonto() { // JPA benötigt diesen leeren Konstruktor
     }
 
-    public Benutzerkonto(String name, String email, String passwordHash, Rolle rolle, Studienordnung studienordnung) {
+    public Benutzerkonto(String name, String email, String passwordHash, Rolle rolle, Studienordnung studienordnung, String studienjahrgang) {
         this.name = name;
         this.email = email;
         this.passwordHash = passwordHash;
         this.rolle = rolle;
         this.studienordnung = studienordnung;
+        this.studienjahrgang = studienjahrgang;
     }
 
     // Getter: Diese Methoden lesen Werte aus dem Objekt aus
@@ -95,6 +98,8 @@ public class Benutzerkonto {
     public Studienordnung getStudienordnung() {
         return studienordnung;
     }
+
+    public String getStudienjahrgang() {return studienjahrgang;}
 
     public boolean getAktiv() {
         return aktiv;
