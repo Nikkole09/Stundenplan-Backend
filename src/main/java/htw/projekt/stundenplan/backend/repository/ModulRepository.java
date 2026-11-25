@@ -17,4 +17,9 @@ public interface ModulRepository extends JpaRepository<Modul, Long> {
      * Dafür übergeben wir einfach die ID der Studienordnung (z. B. von der StuPO 2024)
      */
     List<Modul> findByStudienordnungId(Long studienordnungId);
+
+    
+    // Liefert die Module einer Studienordnung sortiert nach Semester und Nummer.
+    List<Modul> findByStudienordnungIdOrderBySemesterAscNummerAsc(
+    Long studienordnungId);
 }
